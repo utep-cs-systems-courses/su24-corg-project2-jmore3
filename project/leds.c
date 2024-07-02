@@ -52,3 +52,16 @@ void led_update_green(){ /*turns the green LED on*/
   switch_state_changed = 0;
 
 }
+
+void led_siren(){
+  if(switch_state_changed){
+    char ledFlags =  greenVal[green_on];
+    //(switch_state_downSW4){
+    P1OUT &= (0xf^LEDS) | ledFlags;
+    P1OUT |= ledFlags;
+    state_advance();
+    led_siren();
+    
+  }
+  switch_state_changed = 0;
+}
