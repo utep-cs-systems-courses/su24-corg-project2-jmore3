@@ -9,6 +9,7 @@ int main(void){
   switch_init();
   led_init();
   enableWDTInterrupts();
+  melody_init();
 
   or_sr(0x18);
 }
